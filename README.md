@@ -35,7 +35,7 @@ Switch# show interfaces status
 ### Adding Interface Descriptions
 ```cisco
 Switch(config)# interface fastethernet 0/1
-Switch(config-if)# description Proxmox Management
+Switch(config-if)# description Marketing
 ```
 
 ## Trunk Configuration
@@ -51,15 +51,15 @@ Switch(config-if)# switchport trunk allowed vlan all
 ### Server Trunk (Specific VLANs)
 ```cisco
 Switch(config)# interface fastethernet 0/2
-Switch(config-if)# description Proxmox Trunk
+Switch(config-if)# description vmware_trunk
 Switch(config-if)# switchport mode trunk
 Switch(config-if)# switchport trunk allowed vlan 10,20
 ```
 
-### Access Points Trunk (Staff and Guest VLANs)
+### Access Points Trunk (IT and Marketing VLANs)
 ```cisco
 Switch(config)# interface fastethernet 0/3
-Switch(config-if)# description AP1 Trunk
+Switch(config-if)# description AP1_Trunk
 Switch(config-if)# switchport mode trunk
 Switch(config-if)# switchport trunk allowed vlan 30,40
 ```
@@ -72,7 +72,7 @@ Switch(config)# vlan 30
 Switch(config-vlan)# name Management
 Switch(config-vlan)# exit
 Switch(config)# interface vlan30
-Switch(config-if)# ip address 192.168.30.10 255.255.255.0
+Switch(config-if)# ip address 192.168.5.10 255.255.255.0
 Switch(config-if)# no shutdown
 ```
 
