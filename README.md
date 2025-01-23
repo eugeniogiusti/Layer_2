@@ -101,6 +101,9 @@ Devices in separate VLANs cannot communicate directly. To enable communication, 
 | VLAN 20   |                       | VLAN 20   |
 +-----------+                       +-----------+
 ```
+![image](https://github.com/user-attachments/assets/03b3dfce-985c-4252-959f-916b8d852ffa)
+
+![image](https://github.com/user-attachments/assets/7ce4ef11-ed62-49ab-bdd9-1ad3476c5b0d)
 
 
 ## Basic VLAN Configuration
