@@ -1,4 +1,107 @@
-# Cisco Switch Configuration Guide
+# Layer_2 Notes
+
+# VLAN: Virtual Local Area Network
+
+## Overview
+
+A **VLAN (Virtual Local Area Network)** is a technology that allows for logical segmentation of networks within the same physical infrastructure. It separates network traffic into distinct virtual domains, enabling better performance, security, and flexibility in network management.
+
+---
+
+## Purpose of VLANs
+
+### 1. **Traffic Segmentation**
+
+- Separate network traffic by group or function (e.g., HR, IT, and Finance).
+- Prevent devices in different VLANs from communicating directly, reducing congestion.
+
+### 2. **Enhanced Security**
+
+- Isolate sensitive resources in dedicated VLANs to limit access.
+- Minimize risks of unauthorized access.
+
+### 3. **Improved Performance**
+
+- Reduce broadcast traffic by confining it to specific VLANs.
+- Avoid unnecessary flooding of packets across the entire network.
+
+### 4. **Flexibility in Network Design**
+
+- Reconfigure logical network segmentation without changing physical cabling.
+- Easily move devices between VLANs by modifying configurations.
+
+---
+
+## Key Concepts
+
+### Broadcast Domain
+
+A broadcast domain encompasses all devices that receive a broadcast frame sent by one of the devices. VLANs reduce the size of broadcast domains, ensuring that broadcast traffic is limited to devices within the same VLAN.
+
+### Port Modes
+
+#### 1. **Access Port**
+
+- Assigned to a single VLAN.
+- Used to connect endpoint devices (e.g., PCs, printers, servers).
+- Traffic on access ports is **untagged**, meaning no VLAN information is added to the Ethernet frame.
+
+#### 2. **Trunk Port**
+
+- Carries traffic for multiple VLANs between network devices (e.g., switches, routers).
+- Traffic on trunk ports is **tagged** using the **IEEE 802.1Q** standard.
+
+### IEEE 802.1Q Tagging
+
+802.1Q is the standard for VLAN tagging in Ethernet frames. It adds a 4-byte VLAN tag to the Ethernet header:
+
+#### VLAN Tag Structure
+
+- **Tag Protocol Identifier (TPID)**: Indicates the frame is tagged.
+- **Priority Code Point (PCP)**: Used for Quality of Service (QoS).
+- **VLAN ID (VID)**: Identifies the VLAN to which the frame belongs (range: 1-4094).
+
+Untagged frames are typically assigned to the **native VLAN** (default VLAN for untagged traffic on trunk ports).
+
+---
+
+## Routing Between VLANs
+
+Devices in separate VLANs cannot communicate directly. To enable communication, **inter-VLAN routing** is required. This can be achieved using:
+
+1. **Router-on-a-Stick**
+
+   - A router with a single interface configured as a trunk.
+   - Routes traffic between VLANs based on tagging.
+
+2. **Layer 3 Switch**
+
+   - Combines switching and routing capabilities.
+   - Routes traffic between VLANs without needing an external router.
+
+---
+
+## Importance of VLANs
+
+- **Security**: Protect sensitive data by isolating critical resources.
+- **Efficiency**: Minimize unnecessary broadcast traffic.
+- **Scalability**: Adapt to growing and complex networks.
+- **Ease of Management**: Simplify logical segmentation without physical changes.
+
+
+---
+
+## Diagram: Example VLAN Setup
+
+```
++-----------+      Trunk Port       +-----------+
+|   Switch  |=======================|   Switch  |
+|           |                       |           |
+| VLAN 10   |                       | VLAN 10   |
+| VLAN 20   |                       | VLAN 20   |
++-----------+                       +-----------+
+```
+
 
 ## Basic VLAN Configuration
 
