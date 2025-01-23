@@ -109,12 +109,3 @@ Switch# write memory
 # or
 Switch# copy running-config startup-config
 ```
-
-## Notes
-- Always save configuration changes using `write memory` or `copy running-config startup-config`
-- When configuring SSH, the domain name is required for RSA key generation but can be any valid domain format
-- Management VLAN (VLAN 30) is used for secure switch administration
-- Trunk ports should be configured based on security requirements:
-  - Firewall trunk allows all VLANs
-  - Server trunk allows only specific server VLANs
-  - AP trunks allow only staff and guest VLANs
