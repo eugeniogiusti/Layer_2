@@ -105,6 +105,8 @@ Devices in separate VLANs cannot communicate directly. To enable communication, 
 
 ![image](https://github.com/user-attachments/assets/7ce4ef11-ed62-49ab-bdd9-1ad3476c5b0d)
 
+- Useful Videos:
+- https://www.youtube.com/watch?v=fRuBHSf3Hac
 
 ## Basic VLAN Configuration
 
