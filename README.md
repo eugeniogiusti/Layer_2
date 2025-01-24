@@ -210,6 +210,18 @@ Switch# show running-config
 # or
 Switch# show run brief
 ```
+### show active trunk
+```cisco
+Switch# show interfaces trunk
+```
+### View all vlan configured on interfaces
+
+```cisco
+Switch# show vlan brief
+```
+
+
+
 
 ### Save Configuration
 ```cisco
