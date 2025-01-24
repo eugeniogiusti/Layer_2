@@ -229,3 +229,143 @@ Switch# write memory
 # or
 Switch# copy running-config startup-config
 ```
+
+
+# Spanning Tree and PortFast Configuration Documentation for Cisco Switches
+
+This documentation explains how to configure and manage **Spanning Tree Protocol (STP)** and **PortFast** on Cisco switches. It covers various network scenarios, necessary configurations, and commands for managing these features.
+
+## Table of Contents
+
+1. [Introduction to Spanning Tree](#introduction-to-spanning-tree)
+2. [Spanning Tree Configuration](#spanning-tree-configuration)
+3. [PortFast](#portfast)
+4. [Verification and Disabling Commands](#verification-and-disabling-commands)
+5. [Network Scenarios](#network-scenarios)
+6. [Conclusion](#conclusion)
+
+## Introduction to Spanning Tree
+
+The **Spanning Tree Protocol (STP)** is used to prevent network loops in a topology with multiple switches. When multiple switches are connected, without STP control, packets could get trapped in an infinite cycle, creating a loop.
+
+### STP Types
+
+There are several STP modes, including:
+
+- **PVST (Per VLAN Spanning Tree)**: Each VLAN has its own spanning tree. This is useful for better managing networks with multiple VLANs.
+- **Rapid PVST (R-PVST)**: A faster version of PVST that reduces convergence times.
+- **MST (Multiple Spanning Tree)**: Allows multiple STP instances for groups of VLANs.
+
+## Spanning Tree Configuration
+
+To configure **PVST mode** (which is useful for networks with multiple VLANs), use the following command:
+
+```bash
+spanning-tree mode pvst
+```
+
+### Useful Commands:
+
+- **Check STP mode**:
+  ```bash
+  show spanning-tree summary
+  ```
+
+- **Disable STP (not recommended in production)**:
+  ```bash
+  conf t
+  no spanning-tree mode pvst
+  end
+  ```
+
+## PortFast
+
+The **PortFast** command is used to speed up the activation process for **access** ports (connected to end devices like PCs, printers, etc.). Without PortFast, a port may stay in the **Listening** and **Learning** state for 30 seconds before transitioning to **Forwarding**, causing delays in device connectivity.
+
+### Command to enable PortFast:
+
+```bash
+spanning-tree portfast
+```
+
+- **Verify PortFast on an interface**:
+  ```bash
+  show running-config interface FastEthernet0/1
+  ```
+
+- **Disable PortFast on an interface**:
+  ```bash
+  conf t
+  interface FastEthernet0/1
+   no spanning-tree portfast
+  end
+  ```
+
+## Verification and Disabling Commands
+
+Here are the commands to **verify** and **disable** the configuration of Spanning Tree and PortFast.
+
+### Verify Spanning Tree
+
+- **Display Spanning Tree status**:
+  ```bash
+  show spanning-tree summary
+  ```
+
+- **Display Spanning Tree status on an interface**:
+  ```bash
+  show spanning-tree interface FastEthernet0/1
+  ```
+
+### Verify PortFast
+
+- **Verify PortFast on an interface**:
+  ```bash
+  show running-config interface FastEthernet0/1
+  show spanning-tree interface FastEthernet0/1
+  ```
+
+### Disable PortFast
+
+To disable PortFast on a port, use:
+
+```bash
+conf t
+interface FastEthernet0/1
+ no spanning-tree portfast
+end
+```
+
+### Disable Spanning Tree
+
+If you want to disable Spanning Tree (not recommended in a complex network), use:
+
+```bash
+conf t
+no spanning-tree mode pvst
+end
+```
+
+## Network Scenarios
+
+### Scenario 1: **Single Switch Network**
+
+In the case of a single switch network, there are no possible loops, but it is still important to configure **Spanning Tree** for future expansion.
+
+- Configure **Spanning Tree** with the command `spanning-tree mode pvst`.
+- Enable **PortFast** on **access** ports (connected to PCs and end devices) to reduce connection times.
+
+### Scenario 2: **Multiple Switches Network**
+
+In a network with multiple switches, **Spanning Tree** is essential to prevent loops and ensure a stable network topology.
+
+- Configure **Spanning Tree** with the command `spanning-tree mode pvst`.
+- Ensure the **root bridge** is configured properly to manage traffic flow.
+- Enable **PortFast** on **access** ports and use **trunking** for the ports connecting switches.
+
+## Conclusion
+
+Configuring **Spanning Tree** and **PortFast** is crucial to ensure a stable and performant network. In your scenario with a single switch, **PVST** is a good choice for managing VLANs in the future, while **PortFast** speeds up the activation process for access ports.
+
+Make sure to **verify** the status of Spanning Tree and PortFast regularly using the appropriate commands to avoid misconfigurations.
+
