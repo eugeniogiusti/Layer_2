@@ -246,6 +246,11 @@ This documentation explains how to configure and manage **Spanning Tree Protocol
 
 ## Introduction to Spanning Tree
 
+![image](https://github.com/user-attachments/assets/a1396a39-e82d-4fbf-9538-a31d04171be5)
+
+![image](https://github.com/user-attachments/assets/c9074de7-5195-498a-99ea-5515ed90a01a)
+
+
 The **Spanning Tree Protocol (STP)** is used to prevent network loops in a topology with multiple switches. When multiple switches are connected, without STP control, packets could get trapped in an infinite cycle, creating a loop.
 
 ### STP Types
