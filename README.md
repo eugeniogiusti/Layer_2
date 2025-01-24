@@ -184,6 +184,23 @@ Switch(config-if)# ip address 192.168.5.10 255.255.255.0
 Switch(config-if)# no shutdown
 ```
 
+### Add a vlan on an interface configured in trunk
+```
+switchport trunk allowed vlan add 70
+```
+
+
+### Show the trunk on the interface
+```
+show interfaces FastEthernet0/1 trunk
+```
+
+
+### Reset an interface of its configurations
+```cisco
+default interface FastEthernet0/1
+```
+
 ### SSH Configuration
 ```cisco
 Switch(config)# hostname switch_name
