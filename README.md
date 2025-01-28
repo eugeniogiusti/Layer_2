@@ -114,7 +114,7 @@ Devices in separate VLANs cannot communicate directly. To enable communication, 
 ```cisco
 Switch> enable
 Switch# configure terminal
-Switch(config)# vlan 10
+Switch(config)# vlan 80
 Switch(config-vlan)# name Marketing
 Switch(config-vlan)# exit
 ```
@@ -123,7 +123,7 @@ Switch(config-vlan)# exit
 ```cisco
 Switch(config)# interface fastethernet 0/1
 Switch(config-if)# switchport mode access
-Switch(config-if)# switchport access vlan 10
+Switch(config-if)# switchport access vlan 80
 ```
 
 ## Interface Configuration
@@ -161,7 +161,7 @@ Switch(config-if)# switchport trunk allowed vlan all
 Switch(config)# interface fastethernet 0/2
 Switch(config-if)# description vmware_trunk
 Switch(config-if)# switchport mode trunk
-Switch(config-if)# switchport trunk allowed vlan 10,20
+Switch(config-if)# switchport trunk allowed vlan 90,99
 ```
 
 ### Access Points Trunk (IT and Marketing VLANs)
@@ -169,7 +169,7 @@ Switch(config-if)# switchport trunk allowed vlan 10,20
 Switch(config)# interface fastethernet 0/3
 Switch(config-if)# description AP1_Trunk
 Switch(config-if)# switchport mode trunk
-Switch(config-if)# switchport trunk allowed vlan 30,40
+Switch(config-if)# switchport trunk allowed vlan 90,99
 ```
 
 ## Security Configuration
@@ -179,14 +179,14 @@ Switch(config-if)# switchport trunk allowed vlan 30,40
 Switch(config)# vlan 30
 Switch(config-vlan)# name Management
 Switch(config-vlan)# exit
-Switch(config)# interface vlan30
-Switch(config-if)# ip address 192.168.5.10 255.255.255.0
+Switch(config)# interface vlan80
+Switch(config-if)# ip address 192.168.80.10 255.255.255.0
 Switch(config-if)# no shutdown
 ```
 
 ### Add a vlan on an interface configured in trunk
 ```
-switchport trunk allowed vlan add 70
+switchport trunk allowed vlan add 80
 ```
 
 
