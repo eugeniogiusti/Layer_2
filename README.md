@@ -393,3 +393,72 @@ Configuring **Spanning Tree** and **PortFast** is crucial to ensure a stable and
 
 Make sure to **verify** the status of Spanning Tree and PortFast regularly using the appropriate commands to avoid misconfigurations.
 
+
+# Access Point Configuration Guide for Trunk Mode
+
+## Prerequisites
+- Access Point with VLAN support
+- Local network access
+- Administrative rights to the Access Point
+
+## 1. Static IP Configuration for Management
+1. Access the Access Point administration interface
+2. Navigate to "Network Settings"
+3. Disable DHCP
+4. Configure the following parameters:
+   - Static IP address: [INSERT_IP]
+   - Subnet mask: [INSERT_SUBNET]
+   - Default gateway: [INSERT_GATEWAY]
+   - Primary DNS: [INSERT_DNS]
+
+## 2. Management VLAN Configuration
+1. Navigate to "VLAN Settings"
+2. Configure the Management VLAN:
+   - Management VLAN ID: [INSERT_VLAN_ID]
+   - Ensure this VLAN is tagged on the trunk port
+
+## 3. VLAN and SSID Configuration
+1. For each required wireless network, configure:
+   - VLAN ID: [INSERT_VLAN_ID]
+   - Corresponding SSID: [INSERT_SSID]
+   - Security settings for each SSID:
+     - Authentication type
+     - Security key/password
+     - Encryption (WPA2/WPA3)
+
+### Configuration Example
+```
+Management VLAN: 10
+Guest VLAN: 20 - SSID: Guest_Network
+Staff VLAN: 30 - SSID: Staff_Network
+VoIP VLAN: 40 - SSID: VoIP_Network
+```
+
+## 4. Configuration Verification
+1. Verify AP is accessible through the management IP
+2. Test connectivity for each configured SSID
+3. Verify clients connect to the appropriate VLAN
+
+## Important Notes
+- Ensure VLANs configured on the AP match the upstream switch configuration
+- Document all VLAN IDs and SSIDs for future reference
+- Create a backup of the configuration after setup is complete
+- Verify the trunk port on the upstream switch is properly configured to allow all necessary VLANs
+
+## Troubleshooting
+- If AP is not accessible after static IP configuration:
+  - Check physical connectivity
+  - Verify configured IP is in the correct subnet
+  - Check management VLAN is properly configured on the switch
+- If an SSID is not visible:
+  - Verify corresponding VLAN is correctly tagged on the trunk
+  - Check if SSID is enabled and broadcasting is active
+
+## Best Practices
+- Use meaningful SSID names that align with their purpose
+- Implement appropriate security measures for each SSID
+- Keep detailed documentation of all configurations
+- Regularly backup the AP configuration
+- Test all SSIDs after configuration changes
+- Monitor AP performance and client connectivity
+
