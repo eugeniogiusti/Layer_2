@@ -413,11 +413,17 @@ Make sure to **verify** the status of Spanning Tree and PortFast regularly using
    - Default gateway: [INSERT_GATEWAY]
    - Primary DNS: [INSERT_DNS]
 
+![ip](https://github.com/user-attachments/assets/8213565a-52bb-4139-bf16-ece5ccab3958)
+
+
 ## 2. Management VLAN Configuration
 1. Navigate to "VLAN Settings"
 2. Configure the Management VLAN:
    - Management VLAN ID: [INSERT_VLAN_ID]
    - Ensure this VLAN is tagged on the trunk port
+  
+![vlan](https://github.com/user-attachments/assets/1491f510-cce8-48d5-acd4-faf6e13ce971)
+
 
 ## 3. VLAN and SSID Configuration
 1. For each required wireless network, configure:
