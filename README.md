@@ -413,7 +413,7 @@ Make sure to **verify** the status of Spanning Tree and PortFast regularly using
    - Default gateway: [INSERT_GATEWAY]
    - Primary DNS: [INSERT_DNS]
 
-![ip](https://github.com/user-attachments/assets/8213565a-52bb-4139-bf16-ece5ccab3958)
+
 
 
 ## 2. Management VLAN Configuration
