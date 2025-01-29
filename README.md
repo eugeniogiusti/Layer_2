@@ -394,6 +394,8 @@ Configuring **Spanning Tree** and **PortFast** is crucial to ensure a stable and
 Make sure to **verify** the status of Spanning Tree and PortFast regularly using the appropriate commands to avoid misconfigurations.
 
 
+
+
 # Access Point Configuration Guide for Trunk Mode
 
 ## Prerequisites
