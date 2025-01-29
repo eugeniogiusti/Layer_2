@@ -201,24 +201,6 @@ show interfaces FastEthernet0/1 trunk
 default interface FastEthernet0/1
 ```
 
-### SSH Configuration
-```cisco
-Switch(config)# hostname switch_name
-Switch(config)# ip domain-name local.net
-Switch(config)# crypto key generate rsa
-Switch(config)# username admin password your_password
-Switch(config)# line vty 0 15
-Switch(config-line)# transport input ssh
-Switch(config-line)# login local
-```
-
-### Console Port Configuration
-```cisco
-Switch(config)# line console 0
-Switch(config-line)# password your_password
-Switch(config-line)# login
-```
-
 ## General Configuration Commands
 
 ### View Full Configuration
