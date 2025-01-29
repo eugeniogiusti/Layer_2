@@ -428,10 +428,10 @@ Make sure to **verify** the status of Spanning Tree and PortFast regularly using
 
 ### Configuration Example
 ```
-Management VLAN: 10
-Guest VLAN: 20 - SSID: Guest_Network
-Staff VLAN: 30 - SSID: Staff_Network
-VoIP VLAN: 40 - SSID: VoIP_Network
+Management VLAN: 99
+Guest VLAN: 55 - SSID: Guest_Network
+Staff VLAN: 60 - SSID: IT
+VoIP VLAN: 100 - SSID: VoIP_Network
 ```
 
 ## 4. Configuration Verification
