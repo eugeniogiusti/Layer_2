@@ -376,7 +376,9 @@ Configuring **Spanning Tree** and **PortFast** is crucial to ensure a stable and
 Make sure to **verify** the status of Spanning Tree and PortFast regularly using the appropriate commands to avoid misconfigurations.
 
 
-## Basic Port Security Configuration
+
+
+# Basic Port Security Configuration
 
 ### Enable Port Security on an Interface
 ```cisco
