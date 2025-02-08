@@ -376,6 +376,82 @@ Configuring **Spanning Tree** and **PortFast** is crucial to ensure a stable and
 Make sure to **verify** the status of Spanning Tree and PortFast regularly using the appropriate commands to avoid misconfigurations.
 
 
+## Basic Port Security Configuration
+
+### Enable Port Security on an Interface
+```cisco
+Switch# configure terminal
+Switch(config)# interface fastethernet 0/1
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport port-security
+Switch(config-if)# end
+```
+
+### Configure Maximum MAC Addresses
+```cisco
+Switch(config-if)# switchport port-security maximum 1
+```
+
+### Configure Violation Mode
+```cisco
+Switch(config-if)# switchport port-security violation {shutdown | restrict | protect}
+```
+- shutdown: Disables interface upon violation (default)
+- restrict: Drops packets with unknown source addresses
+- protect: Drops packets but does not increment violation counter
+
+### Configure Static MAC Address
+```cisco
+Switch(config-if)# switchport port-security mac-address mac-address
+```
+
+### Configure Sticky Learning
+```cisco
+Switch(config-if)# switchport port-security mac-address sticky
+```
+
+## Monitoring and Verification Commands
+
+### View Port Security Configuration
+```cisco
+Switch# show port-security interface fastethernet 0/1
+```
+
+### View MAC Address Table
+```cisco
+Switch# show mac address-table
+```
+
+### View Security Violations
+```cisco
+Switch# show port-security
+```
+
+### View Detailed Interface Status
+```cisco
+Switch# show interfaces fastethernet 0/1 status
+```
+
+## Common Troubleshooting Commands
+
+### Check Port Security Status
+```cisco
+Switch# show port-security address
+```
+
+### View Interface Error Status
+```cisco
+Switch# show interfaces fastethernet 0/1 status err-disabled
+```
+
+### Recovery from Security Violation
+```cisco
+Switch# configure terminal
+Switch(config)# interface fastethernet 0/1
+Switch(config-if)# shutdown
+Switch(config-if)# no shutdown
+Switch(config-if)# end
+```
 
 
 # Access Point Configuration Guide for Trunk Mode
